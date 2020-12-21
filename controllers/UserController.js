@@ -1,10 +1,15 @@
 const User = require("../models/User");
+const { validationResult } = require("express-validator");
 
-module.exports.addUser = async (req, res) => {
+exports.addUser = async (req, res) => {
   try {
     const { firstName, lastName, phone } = req.body;
 
-    //TODO validation
+    //field validation
+    const validationErr = validationResult(req);
+    if (validationErr?.errors?.length > 0) {
+      return res.status(400).json({ errors: validationErr.array() });
+    }
 
     // save user
     const user = new User({
@@ -14,16 +19,15 @@ module.exports.addUser = async (req, res) => {
     });
 
     const addedUser = await user.save({ new: true });
-    res.status(200).send("User added");
-  } 
-  catch (err) {
-    return res.status(500).json(addedUser);
+    res.status(200).json(addedUser);
+  } catch (err) {
+    return res.status(400).json(err);
   }
 };
 
-module.exports.getUsers = async (req, res) => {
+exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find({}).where("status", /[^created]/);
+    const users = await User.find({});
     res.status(200).json(users);
   } catch (err) {
     return res.status(500).json({ errors: [{ message: err.message }] });
