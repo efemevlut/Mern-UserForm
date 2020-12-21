@@ -1,3 +1,9 @@
 .form-wrapper {
     width: 20rem;
+    justify-self: center;
+    align-self: center;
+}
+.image {
+    width: 15.625rem;
+    margin-left: 2.1875rem;
 }

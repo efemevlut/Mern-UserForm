@@ -1,6 +1,5 @@
 .body {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 1.50rem;
+  flex-direction: column;
+
 }

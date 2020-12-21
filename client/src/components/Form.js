@@ -1,11 +1,12 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Button, Form } from "react-bootstrap";
 import "./Form.style.css";
+import Logo from "../logo/logo.jpg";
 
 function FormComp() {
   return (
     <Form className="form-wrapper">
+      <img src={Logo} alt="logo" className="image"/>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>First Name</Form.Label>
         <Form.Control type="text" placeholder="Enter your first name" />
@@ -19,8 +20,8 @@ function FormComp() {
         <Form.Label>Phone</Form.Label>
         <Form.Control type="number" placeholder="Enter your phone number" />
       </Form.Group>
-      
-      <Button variant="primary" type="submit">
+
+      <Button variant="primary" type="submit" >
         Add User
       </Button>
     </Form>
