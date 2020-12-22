@@ -1,69 +1,103 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { Formik } from "formik";
 import { Button, Form } from "react-bootstrap";
-import "./Form.style.css";
-import Logo from "../logo/logo.png";
 import { postData } from "../helper/PostData";
+import "./Form.style.css";
+import * as Yup from "yup";
+import Logo from "../logo/logo.png";
 
-function FormComp() {
+const addUser = Yup.object({
+  firstName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required(),
+  lastName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required(),
+  phone: Yup.number().min(100000000, "Min 10 chars"),
+});
 
-  const onSubmit = (e) => {
-
-    e.preventDefault();
-    const firstName = e.target.elements[0].value;
-    const lastName = e.target.elements[1].value;
-    const phone = e.target.elements[2].value;
-
-    postData("/api/users/addUser", { firstName, lastName, phone })
-      .then((data) => {
-        alert("Added user");
-      })
-      .catch((err) => {
-        console.log("Error", err);
-      });
-  };
-
-  return (
-    <Form className="form-wrapper" onSubmit={onSubmit}>
-      <img src={Logo} alt="logo" className="image" />
-      <Form.Group>
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          name="firstName"
-          type="text"
-          placeholder="Enter your first name"
-          required
-        />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          name="lastName"
-          type="text"
-          placeholder="Enter your last name"
-          required
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Phone</Form.Label>
-        <input
-          name="phone"
-          type="number"
-          placeholder="Enter your phone number"
-          required
-          min
-        />
-        <Form.Control.Feedback type="invalid">
-          Looks good!
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Add User
-      </Button>
-    </Form>
-  );
-}
+const FormComp = () => (
+  <div className="form-wrapper" >
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        phone: "",
+      }}
+      validationSchema={addUser}
+      onSubmit={(values) => {
+        postData("/api/users/addUser", values)
+          .then(() => {
+            alert("Added user");
+          })
+          .catch((err) => {
+            alert("Error");
+          });
+        console.log(values);
+      }}
+    >
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        touched,
+        isValid,
+        errors,
+      }) => (
+        <Form onSubmit={handleSubmit}>
+          <img src={Logo} alt="logo" className="image" />
+          <Form.Group>
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              value={values.firstName}
+              onChange={handleChange}
+              name="firstName"
+              isValid={touched.firstName && !errors.firstName}
+            />
+            <Form.Control.Feedback type="valid">
+              Looks Good
+            </Form.Control.Feedback>
+            <Form.Control.Feedback type="inValid">
+              {errors.firstName}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              name="lastName"
+              type="text"
+              value={values.lastName}
+              onChange={handleChange}
+              isValid={touched.lastName && !errors.lastName}
+              required
+            />
+            <Form.Control.Feedback>Looks Good</Form.Control.Feedback>
+            <Form.Control.Feedback type="inValid">
+              {errors.lastName}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Phone</Form.Label>
+            <Form.Control
+              type="number"
+              value={values.phone}
+              onChange={handleChange}
+              name="phone"
+              isValid={touched.phone && !errors.phone}
+              required
+            />
+            <Form.Control.Feedback type="valid">
+              Looks Good
+            </Form.Control.Feedback>
+            <Form.Control.Feedback type="inValid">
+              {errors.phone}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Add User
+          </Button>
+        </Form>
+      )}
+    </Formik>
+  </div>
+);
 
 export default FormComp;
