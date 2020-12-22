@@ -2,6 +2,7 @@ const express = require("express");
 const dbConnect = require("./models/dbConnect");
 require("dotenv").config();
 const router = require("./routers/router");
+const cors = require("cors");
 
 
 //server
@@ -14,5 +15,9 @@ app.listen(port, ()=>{
 //database connect
 dbConnect();
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }));
 app.use(express.json());
 app.use("/api", router);

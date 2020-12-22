@@ -9,8 +9,8 @@ exports.userValidation = [
     "lastName",
     "Please enter a last name minimum 2 and maximum 20 chars"
   ).isLength({ min: 2, max: 20 }),
-  check("phone", "Please enter a phone number 10 chars").isLength({
-    max: 10,
+  check("phone", "Please enter a phone number minimum 10 chars and maximum 20 chars").isLength({
+    max: 20,
     min: 10,
   }),
 ];
