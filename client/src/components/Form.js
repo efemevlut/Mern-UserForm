@@ -7,9 +7,9 @@ import * as Yup from "yup";
 import Logo from "../logo/logo.png";
 
 const addUser = Yup.object({
-  firstName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required(),
-  lastName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required(),
-  phone: Yup.number().min(100000000, "Min 10 chars"),
+  firstName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required("First name is a required"),
+  lastName: Yup.string().min(2, "Too Short!").max(20, "Too Long!").required("Last name is a required"),
+  phone: Yup.number().min(100000000, "Min 10 chars").required("Phone is a required"),
 });
 
 const FormComp = () => (
@@ -29,7 +29,6 @@ const FormComp = () => (
           .catch((err) => {
             alert("Error");
           });
-        console.log(values);
       }}
     >
       {({
@@ -55,7 +54,7 @@ const FormComp = () => (
             <Form.Control.Feedback type="valid">
               Looks Good
             </Form.Control.Feedback>
-            <Form.Control.Feedback type="inValid">
+            <Form.Control.Feedback type="inValid" className="invalid">
               {errors.firstName}
             </Form.Control.Feedback>
           </Form.Group>
@@ -70,7 +69,7 @@ const FormComp = () => (
               required
             />
             <Form.Control.Feedback>Looks Good</Form.Control.Feedback>
-            <Form.Control.Feedback type="inValid">
+            <Form.Control.Feedback type="inValid" className="invalid">
               {errors.lastName}
             </Form.Control.Feedback>
           </Form.Group>
@@ -87,7 +86,7 @@ const FormComp = () => (
             <Form.Control.Feedback type="valid">
               Looks Good
             </Form.Control.Feedback>
-            <Form.Control.Feedback type="inValid">
+            <Form.Control.Feedback type="inValid" className="invalid">
               {errors.phone}
             </Form.Control.Feedback>
           </Form.Group>
