@@ -9,7 +9,7 @@ function TableComp() {
   const {isAdded} = useContext(UserContext);
 
   useEffect(() => {
-    fetchData("api/users")
+    fetchData("https://mern-user-form.herokuapp.com/api/users")
       .then((response) => {
         setUser(response.reverse());
       })
