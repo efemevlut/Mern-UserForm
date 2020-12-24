@@ -7,7 +7,7 @@ exports.addUser = async (req, res) => {
 
     //field validation
     const validationErr = validationResult(req);
-    if (validationErr?.errors?.length > 0) {
+    if (validationErr.errors.length > 0) {
       return res.status(400).json({ errors: validationErr.array() });
     }
 
