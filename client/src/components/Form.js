@@ -40,7 +40,7 @@ const FormComp = () => {
           isValid,
           errors,
         }) => (
-          <Form onSubmit={handleSubmit} ref={formRef}>
+          <Form onSubmit={handleSubmit}>
             <img src={Logo} alt="logo" className="image" />
             <Form.Group>
               <Form.Label>First Name</Form.Label>
