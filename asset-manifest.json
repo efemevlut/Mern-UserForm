@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Mern-UserForm/static/css/main.7a198ce8.chunk.css",
+    "main.js": "/Mern-UserForm/static/js/main.2e58bb89.chunk.js",
+    "main.js.map": "/Mern-UserForm/static/js/main.2e58bb89.chunk.js.map",
+    "runtime-main.js": "/Mern-UserForm/static/js/runtime-main.eab7d2be.js",
+    "runtime-main.js.map": "/Mern-UserForm/static/js/runtime-main.eab7d2be.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/Mern-UserForm/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.09620fa6.chunk.js": "/Mern-UserForm/static/js/2.09620fa6.chunk.js",
+    "static/js/2.09620fa6.chunk.js.map": "/Mern-UserForm/static/js/2.09620fa6.chunk.js.map",
+    "static/js/3.572861b9.chunk.js": "/Mern-UserForm/static/js/3.572861b9.chunk.js",
+    "static/js/3.572861b9.chunk.js.map": "/Mern-UserForm/static/js/3.572861b9.chunk.js.map",
+    "index.html": "/Mern-UserForm/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/Mern-UserForm/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.7a198ce8.chunk.css.map": "/Mern-UserForm/static/css/main.7a198ce8.chunk.css.map",
+    "static/js/2.09620fa6.chunk.js.LICENSE.txt": "/Mern-UserForm/static/js/2.09620fa6.chunk.js.LICENSE.txt",
+    "static/media/logo.e831bfb8.png": "/Mern-UserForm/static/media/logo.e831bfb8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eab7d2be.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.09620fa6.chunk.js",
+    "static/css/main.7a198ce8.chunk.css",
+    "static/js/main.2e58bb89.chunk.js"
+  ]
+}
