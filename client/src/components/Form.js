@@ -20,7 +20,7 @@ const FormComp = () => {
         }}
         validationSchema={addUser}
         onSubmit={(values, { resetForm }) => {
-          postData("/api/users/addUser", values)
+          postData("https://mern-user-form.herokuapp.com/api/users/addUser", values)
             .then(() => {
               alert("Added user");
               tableTriger();
