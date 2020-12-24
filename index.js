@@ -3,6 +3,7 @@ const dbConnect = require("./models/dbConnect");
 require("dotenv").config();
 const router = require("./routers/router");
 const cors = require("cors");
+const path = require("path");
 
 //server
 const app = express();
