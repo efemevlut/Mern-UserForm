@@ -3,3 +3,10 @@
     width: 60rem !important;
     align-self: center;
 }
+
+@media only screen and (max-width: 50rem) {
+    .table-wrapper {
+        width: 12.5rem !important;
+        text-align: center;
+    }
+}

@@ -6,7 +6,7 @@ import { UserContext } from "../App";
 
 function TableComp() {
   const [user, setUser] = useState([]);
-  const {isAdded} = useContext(UserContext);
+  const { isAdded } = useContext(UserContext);
 
   useEffect(() => {
     fetchData("https://mern-user-form.herokuapp.com/api/users")
