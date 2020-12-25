@@ -15,20 +15,20 @@ app.listen(port, () => {
 //database connect
 dbConnect();
 
-production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-  app.use("/api", router)
-}
+// production
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+//   app.use("/api", router)
+// }
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors()
+);
+
+app.use('/', express.static(path.join(__dirname+'/node_modules')));
+
 app.use(express.json());
 app.use("/api", router);
