@@ -11,7 +11,7 @@ function TableComp() {
   useEffect(() => {
     fetchData("https://mern-user-form.herokuapp.com/api/users")
       .then((response) => {
-        setUser(response.reverse());
+        setUser(response?.reverse());
       })
       .catch((err) => console.log("message", err));
   }, [isAdded]);
@@ -26,14 +26,14 @@ function TableComp() {
           <th>Phone</th>
         </tr>
       </thead>
-      {user.map((data, i) => {
+      {user?.map((data, i) => {
         return (
           <tbody key={i}>
             <tr>
               <td>{i + 1}</td>
-              <td>{data.firstName}</td>
-              <td>{data.lastName}</td>
-              <td>{data.phone}</td>
+              <td>{data?.firstName}</td>
+              <td>{data?.lastName}</td>
+              <td>{data?.phone}</td>
             </tr>
           </tbody>
         );

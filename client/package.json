@@ -1,4 +1,16 @@
 {
+  "scripts": {
+    "xdn": "xdn",
+    "xdn:start": "xdn run",
+    "xdn:build": "xdn build",
+    "xdn:deploy": "xdn deploy",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "homepage": "http://efemevlut.github.io/Mern-UserForm",
   "name": "client",
   "version": "0.1.0",
@@ -18,14 +30,6 @@
     "web-vitals": "^0.2.4",
     "yup": "^0.32.8"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,5 +47,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@xdn/cli": "^2.35.2",
+    "@xdn/core": "^2.35.2",
+    "@xdn/devtools": "^2.35.2",
+    "@xdn/prefetch": "^2.35.2"
   }
 }
